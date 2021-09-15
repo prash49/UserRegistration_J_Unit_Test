@@ -1,13 +1,17 @@
 package com.bridgelabz.userregistrationjunittest;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Hello world!
- *
  */
-public class UserRegistration
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Welcome to User Registration System" );
+public class UserRegistration {
+
+    public boolean firstName(String firstName) {
+        String regex = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(firstName);
+        return matcher.matches();
     }
 }
