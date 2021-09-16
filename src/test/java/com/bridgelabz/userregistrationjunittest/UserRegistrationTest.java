@@ -87,6 +87,7 @@ public class UserRegistrationTest {
         boolean result = userRegistration.passwordRule2("psw@");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenPasswordRule3_WhenProper_ShouldReturnTrue() {
         boolean result = userRegistration.passwordRule3("123Aa@123");
@@ -96,6 +97,42 @@ public class UserRegistrationTest {
     @Test
     public void givenPasswordRule3_WhenNotProper_ShouldReturnFalse() {
         boolean result = userRegistration.passwordRule3("123456789");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPasswordRule4_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule4("@123@Abc");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordRule4_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule4("@@@@@@@@@A");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenEmail1_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.emailIdValidator("abc.100@abc.com.au");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenEmail1_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.emailIdValidator("abc()*@gmail.com");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenEmail2_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.emailIdValidator("abc.100@abc.com.au");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenEmail2_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.emailIdValidator("abc()*@gmail.com");
         Assert.assertEquals(false, result);
     }
 
