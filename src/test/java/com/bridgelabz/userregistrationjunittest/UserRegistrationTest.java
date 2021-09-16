@@ -3,10 +3,16 @@ package com.bridgelabz.userregistrationjunittest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Unit test for simple App.
  */
+
 public class UserRegistrationTest {
     UserRegistration userRegistration;
 
@@ -42,7 +48,7 @@ public class UserRegistrationTest {
 
     @Test
     public void givenEmail_WhenProper_ShouldReturnTrue() {
-        boolean result = userRegistration.email("abc@gmail.com.com");
+        boolean result = userRegistration.email("abc.a@gmail.com,");
         Assert.assertEquals(true, result);
     }
 
@@ -135,6 +141,7 @@ public class UserRegistrationTest {
         boolean result = userRegistration.emailIdValidator("abc()*@gmail.com");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful() {
         String result = MoodAnalyser.analyseMood("User is Happy");
@@ -146,4 +153,5 @@ public class UserRegistrationTest {
         String result = MoodAnalyser.analyseMood("User is Sad");
         Assert.assertEquals("Entry Failed", result);
     }
+
 }
