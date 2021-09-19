@@ -49,9 +49,14 @@ public class EmailTest {
     }
 
     @Test
-    public void givenEmailIds_withExpectedResult_shouldPassAllTheTestCases() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.email(this.email);
-        Assert.assertEquals(this.expectedResult, result);
+    public void givenEmailIds_withExpectedResult_shouldPassAllTheTestCases() throws UserRegistrationException {
+        try {
+
+            UserRegistration userRegistration = new UserRegistration();
+            boolean result = userRegistration.email(this.email);
+            Assert.assertEquals(this.expectedResult, result);
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 }
